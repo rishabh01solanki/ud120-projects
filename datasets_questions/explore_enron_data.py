@@ -18,4 +18,24 @@
 import joblib
 
 enron_data = joblib.load(open("../final_project/final_project_dataset.pkl", "rb"))
+print(len(enron_data))
+#print(len(enron_data['METTS MARK']))
+#print(enron_data)
 
+count = 0
+for key, values in enron_data.items():
+    # Process each key and its corresponding values
+    if enron_data[key]["poi"]==1:
+        count +=1
+
+print (count)
+
+
+count = 0
+for key, value in enron_data.items():
+    if enron_data[key]["poi"]==1 and enron_data[key]['total_payments'] == 'NaN':
+        count +=1
+print(count)
+
+print((count*100)/len(enron_data))
+    
